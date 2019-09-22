@@ -1,0 +1,74 @@
+/*swapping of consonents*/
+#include<stdio.h>
+
+#include<stdlib.h>
+
+#include<string.h>
+
+int main()
+
+{
+
+    char str[100],t;
+
+    int i,n,j,m;
+
+    scanf("%s",str);
+
+    n=strlen(str);
+
+    printf("%d\n",n);
+
+    j=n-1;
+
+    for(i=0;i<n;i++)
+
+    {
+
+        if(str[i]=='a'||str[i]=='e'||str[i]=='i'||str[i]=='o'||str[i]=='u'&&str[j]=='a'||str[j]=='e'||str[j]=='i'||str[j]=='o'||str[j]=='u')
+
+        {
+
+            i++;
+
+            j--;
+
+        }
+
+        else if(str[i]=='a'||str[i]=='e'||str[i]=='i'||str[i]=='o'||str[i]=='u')
+
+        {
+
+            i++;
+
+        }
+
+        else if(str[j]=='a'||str[j]=='e'||str[j]=='i'||str[j]=='o'||str[j]=='u')
+
+        {
+
+            j--;
+
+        }
+
+        else
+
+        {
+
+            t=str[i];
+
+            str[i]=str[j];
+
+            str[j]=t;
+
+            j--;
+
+        }
+
+      
+    
+    }
+
+    printf("%s",str);
+
+}
