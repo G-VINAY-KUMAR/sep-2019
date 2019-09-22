@@ -1,0 +1,59 @@
+/*node from last*/
+#include <stdio.h>
+#include<stdlib.h>
+int c=0;
+struct node
+{
+    int d;
+    struct node * next;
+};
+struct node * addnode(struct node * h)
+{
+    c++;
+    struct node * newnode = (struct node *)malloc(sizeof(struct node));
+    struct node * temp=h;
+    printf("enter data to a node::");
+    scanf("%d",&newnode->d);
+    newnode->next=NULL;
+    if(h==NULL)
+    {
+        h=newnode;
+        return h;
+    } 
+    while(h->next!=NULL)
+    {
+        h=h->next;
+    }
+    h->next=newnode;
+    return temp;
+}
+void display(int m,struct node * h)
+{
+    int a,k=c-m;
+    for(a=0;a<k;a++)
+    {
+        h=h->next;
+    }
+    printf("%d\n",h->d);
+}
+int main()
+{
+    int n,x;
+    struct node * head=NULL,* temp;
+    while(1)
+    {
+        printf("enter 1.addnode 2.findnode::");
+        scanf("%d",&x);
+        switch(x)
+        {
+            case 1: head=addnode(head);
+                    break;
+            case 2: printf("enter node to be search::");
+                    scanf("%d",&n);
+                    display(n,head);
+                    break;
+            default:exit(0);
+        }
+    }
+    return 0;
+}
