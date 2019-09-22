@@ -1,0 +1,33 @@
+/*GCD*/
+#include<stdio.h>
+int nrecgcd(int n1,int n2);
+int recgcd(int n1,int n2);
+void main()
+{
+    int a,b,r;
+    scanf("%d%d",&a,&b);
+    r=nrecgcd(a,b);
+    printf("\nUSING N0N-REC GCD OF %d and %d is::%d",a,b,r);
+    r=recgcd(a,b);
+    printf("\nUSING REC GCD OF %d and %d is::%d",a,b,r);
+}
+int nrecgcd(int n1,int n2)
+{
+    int re;
+    while(n1!=0)
+    {
+        re=n2%n1;
+        n2=n1;
+        n1=re;
+    }
+    return n2;
+}
+int recgcd(int n1,int n2)
+{
+    if(n1==0)
+    {
+        return n2;
+    }
+    else
+        return (n2%n1,n1);
+}
